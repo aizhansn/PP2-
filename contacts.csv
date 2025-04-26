@@ -1,4 +1,3 @@
-name,second_name,last_name,phone_number
-John,Donat,Smith,87777777777
-Jack,Donat,Johnson,88788788888
-Alice,Brown,Taylor,87775555555
+name,phone
+Alice,1234567890
+Bob,9876543210

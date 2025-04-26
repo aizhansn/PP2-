@@ -192,7 +192,26 @@ def game_loop(user_id):
 
         pygame.display.update()
         fps.tick(snake_speed)
+running = True
+while running:
+    screen.fill(WHITE)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_p:
+                paused = not paused
+                if paused:
+                    if get_player_data(player):
+                        update_person(player, level, score, speed)
+                        print("Игра поставлена на паузу и сохранена. Нажмите P, чтобы продолжить.")
 
+    if paused:
+        pause_text = game_over_font.render("PAUSE", True, BLACK)
+        screen.blit(pause_text, (WIDTH // 2 - 100, HEIGHT // 2 - 30))
+        pygame.display.flip()
+        clock.tick(5)
+        continue
 if __name__ == "__main__":
     create_tables()
     username = input("Enter your username: ")
